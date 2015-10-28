@@ -17,11 +17,15 @@ var media = {
   },
   baseline: {
     url: 'data/baseline3_test.mp4',
-    mimeCodec: 'video/mp4; codecs="avc1.42c01E, mp4a.40.2"'
+    mimeCodec: 'video/mp4; codecs="avc1.42c01E, mp4a.40.2"',
+  },
+  transcodeA: {
+    url: 'data/1min-encoded.mp4',
+    mimeCodec: 'video/mp4; codecs="avc1.42c01E,mp4a.40.2"'
   }
 }
 
-var opts = clone(media['definitelyWorks']);
+var opts = clone(media['transcodeA']);
 opts.video = document.querySelector('#presenter-video');
 // bufferWhenNeeded(opts);
 bufferAll(opts);
