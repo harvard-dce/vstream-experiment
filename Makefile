@@ -14,7 +14,7 @@ pushall:
 # -level:v 3.0 => 1E
 transcode-sample:
 	ffmpeg \
-		-i data/1min_presenter.mp4 \
+		-i data/baseline3_test.mp4 \
 		-c:v libx264 \
 		-c:a libvo_aacenc \
 		-profile:v baseline \
@@ -24,9 +24,9 @@ transcode-sample:
 		-strict experimental \
 		-b:a 96k \
 		-movflags faststart \
-		data/1min-encoded.mp4
+		data/baseline3_test_encoded.mp4
 
 check-sample:
-	mp4file --dump data/1min-encoded.mp4 | grep AVCProfileIndication # Profile indication
-	mp4file --dump data/1min-encoded.mp4 | grep profile_compatibility # Profile compatibility
-	mp4file --dump data/1min-encoded.mp4 | grep AVCLevelIndication # Level indication
+	mp4file --dump data/baseline3_test_encoded.mp4 | grep AVCProfileIndication # Profile indication
+	mp4file --dump data/baseline3_test_encoded.mp4 | grep profile_compatibility # Profile compatibility
+	mp4file --dump data/baseline3_test_encoded.mp4 | grep AVCLevelIndication # Level indication
