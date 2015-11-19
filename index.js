@@ -42,10 +42,25 @@ var media = {
   presentation: {
     url: 'data/presentation_bento.mp4',
     mimeCodec: 'video/mp4; codecs="avc1.42C01E, mp4a.40.2"'
+  },
+  presenter: {
+    url: 'data/presenter_bento.mp4',
+    mimeCodec: 'video/mp4; codecs="avc1.42C01E, mp4a.40.2"'
   }
 }
 
-var opts = clone(media['presentation']);
-opts.video = document.querySelector('#presenter-video');
-bufferWhenNeeded(opts);
+var presenterOpts = clone(media['bentoBaseline']);
+presenterOpts.video = document.querySelector('#presenter-video');
+bufferWhenNeeded(presenterOpts);
+
+var presentationOpts = clone(media['presentation']);
+presentationOpts.video = document.querySelector('#presentation-video');
+bufferWhenNeeded(presentationOpts);
+
+setTimeout(speedUp, 3000);
+
+function speedUp() {
+  presenterOpts.video.playbackRate = 2.0;
+}
+
 // bufferAll(opts);
